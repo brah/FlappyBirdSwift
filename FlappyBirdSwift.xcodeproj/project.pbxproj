@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5021DE0519981D3E00183FE3 /* ground.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5021DE0419981D3E00183FE3 /* ground.jpeg */; };
+		5021DE07199828A700183FE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5021DE06199828A700183FE3 /* Images.xcassets */; };
 		507D925D19980D4000FB0095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507D925C19980D4000FB0095 /* AppDelegate.swift */; };
 		507D925F19980D4000FB0095 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 507D925E19980D4000FB0095 /* GameScene.sks */; };
 		507D926119980D4000FB0095 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507D926019980D4000FB0095 /* GameScene.swift */; };
 		507D926319980D4000FB0095 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507D926219980D4000FB0095 /* GameViewController.swift */; };
 		507D926619980D4000FB0095 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507D926419980D4000FB0095 /* Main.storyboard */; };
-		507D926819980D4000FB0095 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507D926719980D4000FB0095 /* Images.xcassets */; };
 		507D927419980D4100FB0095 /* FlappyBirdSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507D927319980D4100FB0095 /* FlappyBirdSwiftTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5021DE0419981D3E00183FE3 /* ground.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ground.jpeg; sourceTree = "<group>"; };
+		5021DE06199828A700183FE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		507D925719980D4000FB0095 /* FlappyBirdSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBirdSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		507D925B19980D4000FB0095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507D925C19980D4000FB0095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +37,6 @@
 		507D926019980D4000FB0095 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		507D926219980D4000FB0095 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		507D926519980D4000FB0095 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		507D926719980D4000FB0095 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		507D926D19980D4100FB0095 /* FlappyBirdSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyBirdSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		507D927219980D4100FB0095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507D927319980D4100FB0095 /* FlappyBirdSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlappyBirdSwiftTests.swift; sourceTree = "<group>"; };
@@ -58,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5021DE0319981D3E00183FE3 /* ImagesBird */ = {
+			isa = PBXGroup;
+			children = (
+				5021DE0419981D3E00183FE3 /* ground.jpeg */,
+			);
+			name = ImagesBird;
+			path = ../../../ImagesBird;
+			sourceTree = "<group>";
+		};
 		507D924E19980D4000FB0095 = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +95,8 @@
 				507D926019980D4000FB0095 /* GameScene.swift */,
 				507D926219980D4000FB0095 /* GameViewController.swift */,
 				507D926419980D4000FB0095 /* Main.storyboard */,
-				507D926719980D4000FB0095 /* Images.xcassets */,
+				5021DE06199828A700183FE3 /* Images.xcassets */,
+				5021DE0319981D3E00183FE3 /* ImagesBird */,
 				507D925A19980D4000FB0095 /* Supporting Files */,
 			);
 			path = FlappyBirdSwift;
@@ -195,8 +207,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				507D926819980D4000FB0095 /* Images.xcassets in Resources */,
+				5021DE07199828A700183FE3 /* Images.xcassets in Resources */,
 				507D925F19980D4000FB0095 /* GameScene.sks in Resources */,
+				5021DE0519981D3E00183FE3 /* ground.jpeg in Resources */,
 				507D926619980D4000FB0095 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +416,7 @@
 				507D927919980D4100FB0095 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		507D927A19980D4100FB0095 /* Build configuration list for PBXNativeTarget "FlappyBirdSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +425,7 @@
 				507D927C19980D4100FB0095 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
