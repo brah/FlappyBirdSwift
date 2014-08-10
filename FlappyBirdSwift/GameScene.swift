@@ -12,6 +12,9 @@ class GameScene: SKScene {
     
     
     var bird = SKSpriteNode();
+    var pipeUpTexture = SKTexture()
+    var pipeDownTexture = SKTexture()
+    var PipesMovesAndRemove = SKAction()
     
     override func didMoveToView(view: SKView) {
   
@@ -89,6 +92,17 @@ class GameScene: SKScene {
         
         ground.physicsBody.dynamic = false
         self.addChild(ground)
+        
+        //Building
+        
+        //Creating the pipes
+        pipeUpTexture = SKTexture(imageNamed:"Upbuilding")
+        pipeDownTexture = SKTexture(imageNamed:"Downbuilding")
+        
+        // movement of pipes
+        
+        let 
+        
         
         
         
