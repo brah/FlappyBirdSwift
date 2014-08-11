@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5021DE0519981D3E00183FE3 /* ground.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5021DE0419981D3E00183FE3 /* ground.jpeg */; };
 		5021DE07199828A700183FE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5021DE06199828A700183FE3 /* Images.xcassets */; };
+		5021DEEA1998A70700183FE3 /* background-music.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 5021DEE71998A70700183FE3 /* background-music.aiff */; };
+		5021DEEB1998A70700183FE3 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5021DEE81998A70700183FE3 /* explosion.wav */; };
+		5021DEEC1998A70700183FE3 /* missile.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5021DEE91998A70700183FE3 /* missile.mp3 */; };
 		507D925D19980D4000FB0095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507D925C19980D4000FB0095 /* AppDelegate.swift */; };
 		507D925F19980D4000FB0095 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 507D925E19980D4000FB0095 /* GameScene.sks */; };
 		507D926119980D4000FB0095 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507D926019980D4000FB0095 /* GameScene.swift */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		5021DE0419981D3E00183FE3 /* ground.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ground.jpeg; sourceTree = "<group>"; };
 		5021DE06199828A700183FE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5021DEE71998A70700183FE3 /* background-music.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "background-music.aiff"; sourceTree = "<group>"; };
+		5021DEE81998A70700183FE3 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		5021DEE91998A70700183FE3 /* missile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = missile.mp3; sourceTree = "<group>"; };
 		507D925719980D4000FB0095 /* FlappyBirdSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBirdSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		507D925B19980D4000FB0095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507D925C19980D4000FB0095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,17 @@
 			path = ../../../ImagesBird;
 			sourceTree = "<group>";
 		};
+		5021DEE61998A70700183FE3 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5021DEE71998A70700183FE3 /* background-music.aiff */,
+				5021DEE81998A70700183FE3 /* explosion.wav */,
+				5021DEE91998A70700183FE3 /* missile.mp3 */,
+			);
+			name = Sounds;
+			path = ../../../ImagesBird/Sounds;
+			sourceTree = "<group>";
+		};
 		507D924E19980D4000FB0095 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +122,7 @@
 		507D925A19980D4000FB0095 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5021DEE61998A70700183FE3 /* Sounds */,
 				507D925B19980D4000FB0095 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -207,9 +225,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5021DEEB1998A70700183FE3 /* explosion.wav in Resources */,
 				5021DE07199828A700183FE3 /* Images.xcassets in Resources */,
 				507D925F19980D4000FB0095 /* GameScene.sks in Resources */,
+				5021DEEC1998A70700183FE3 /* missile.mp3 in Resources */,
 				5021DE0519981D3E00183FE3 /* ground.jpeg in Resources */,
+				5021DEEA1998A70700183FE3 /* background-music.aiff in Resources */,
 				507D926619980D4000FB0095 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
