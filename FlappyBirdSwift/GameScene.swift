@@ -254,7 +254,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         let touchLocation = touch.locationInNode(self)
         
         // Reject any shots that are below the ship, or directly to the right or left
-        let targetingVector = touchLocation - bird.position
+        let targetingVector = touchLocation
         if targetingVector.y > 0 {
             // FIRE ZE MISSILES!!!
             fireMissile(targetingVector)
@@ -274,13 +274,13 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         missile.position.y = bird.position.y + (bird.size.height / 2)
         
         // Give the missile sprite a physics body
-        missile.physicsBody = SKPhysicsBody(circleOfRadius: missile.size.width / 2)
-        missile.physicsBody.dynamic = true
-        missile.physicsBody.categoryBitMask = missileCategory
-
-        missile.physicsBody.collisionBitMask = 0
-        missile.physicsBody.usesPreciseCollisionDetection = true
-        
+//        missile.physicsBody = SKPhysicsBody(circleOfRadius: missile.size.width / 2)
+//        missile.physicsBody.dynamic = true
+//        missile.physicsBody.categoryBitMask = missileCategory
+//
+//        missile.physicsBody.collisionBitMask = 0
+//        missile.physicsBody.usesPreciseCollisionDetection = true
+//        
         addChild(missile)
         
         // Calculate the missile's speed and final destination
