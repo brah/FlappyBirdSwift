@@ -6,10 +6,38 @@
 //  Copyright (c) 2014 Quincy Babin. All rights reserved.
 //
 
+
+
+
+
 import SpriteKit
 import AVFoundation
 
-class GameScene: SKScene {
+// Vector addition
+private func + (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x + right.x, y: left.y + right.y)
+}
+
+// Vector subtraction
+private func -(left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x - right.x, y: left.y - right.y)
+}
+
+// Vector * scalar
+private func *(point: CGPoint, factor: CGFloat) -> CGPoint {
+    return CGPoint(x: point.x * factor, y:point.y * factor)
+}
+
+private extension CGPoint {
+    // Get the length (a.k.a. magnitude) of the vector
+    var length: CGFloat { return sqrt(self.x * self.x + self.y * self.y) }
+    
+    // Normalize the vector (preserve its direction, but change its magnitude to 1)
+    var normalized: CGPoint { return CGPoint(x: self.x / self.length, y: self.y / self.length) }
+}
+
+
+class GameScene: SKScene,  SKPhysicsContactDelegate {
     
     
     var bird = SKSpriteNode();
@@ -18,6 +46,7 @@ class GameScene: SKScene {
     var PipesMoveAndRemove = SKAction()
     var backgroundMusicPlayer: AVAudioPlayer!
     let pipeGap = 150.0
+     let missileCategory: UInt32 = 0x1 << 0
     
     override func didMoveToView(view: SKView) {
         var error: NSError?
@@ -35,7 +64,12 @@ class GameScene: SKScene {
         //        myLabel.position = CGPoint(x:CGRectGetMaxX(self.frame), y:CGRectGetMaxY(self.frame));
         //
         //        self.addChild(myLabel)
+        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        myLabel.text = "QUINCY WAS HERE";
+        myLabel.fontSize = 30;
+        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
+        self.addChild(myLabel)
         
         //Physics
         self.physicsWorld.gravity = CGVectorMake(0.0, -5.0);
@@ -78,7 +112,7 @@ class GameScene: SKScene {
         
         
         //ground
-        
+            
         var groundTexture = SKTexture(imageNamed:"Image")
         
         var sprite = SKSpriteNode(texture: groundTexture)
@@ -94,7 +128,7 @@ class GameScene: SKScene {
         
         
         
-        //setting position of where the gravity 'aura' is ??
+        //setting position of where the gravity 'aura' is     
         ground.position = CGPointMake(0, groundTexture.size().height)
         //how big the gravity 'aura' is
         ground.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.frame.size.width, groundTexture.size().height * 2.0))
@@ -213,11 +247,20 @@ class GameScene: SKScene {
     }
     
     
-    
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+        // Select one of the user's touches. Given the event loop's speed, there aren't likely
+        // to be more than 1 or 2 touches in the set.
+        let touch = touches.anyObject() as UITouch
+        let touchLocation = touch.locationInNode(self)
+        
+        // Reject any shots that are below the ship, or directly to the right or left
+        let targetingVector = touchLocation - bird.position
+        if targetingVector.y > 0 {
+            // FIRE ZE MISSILES!!!
+            fireMissile(targetingVector)
+        }
     }
-
+    
     
     func fireMissile(targetingVector: CGPoint) {
         // Now that we've confirmed that the shot is "legal", FIRE ZE MISSILES!
@@ -233,10 +276,35 @@ class GameScene: SKScene {
         // Give the missile sprite a physics body
         missile.physicsBody = SKPhysicsBody(circleOfRadius: missile.size.width / 2)
         missile.physicsBody.dynamic = true
+        missile.physicsBody.categoryBitMask = missileCategory
+
         missile.physicsBody.collisionBitMask = 0
         missile.physicsBody.usesPreciseCollisionDetection = true
         
         addChild(missile)
+        
+        // Calculate the missile's speed and final destination
+        let direction = targetingVector.normalized
+        let missileVector = direction * 1000
+        let missileEndPos = missileVector + missile.position
+        let missileSpeed: CGFloat = 500
+        let missileMoveTime = size.width / missileSpeed
+        
+        // Send the missile on its way
+        let actionMove = SKAction.moveTo(missileEndPos, duration: NSTimeInterval(missileMoveTime))
+        let actionMoveDone = SKAction.removeFromParent()
+        missile.runAction(SKAction.sequence([actionMove, actionMoveDone]))
+    }
+    
+    
+    
+    override func update(currentTime: CFTimeInterval) {
+        /* Called before each frame is rendered */
+    }
+
+    
+
+
         
 //        // Calculate the missile's speed and final destination
 //        let direction = targetingVector.normalized
@@ -249,6 +317,6 @@ class GameScene: SKScene {
 //        let actionMove = SKAction.moveTo(missileEndPos, duration: NSTimeInterval(missileMoveTime))
 //        let actionMoveDone = SKAction.removeFromParent()
 //        missile.runAction(SKAction.sequence([actionMove, actionMoveDone]))
-    }
+    
 
 }
